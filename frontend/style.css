@@ -1,0 +1,180 @@
+/*
+ * ===================================================================================
+ * TÍTULO: Folha de Estilos em Cascata (style.css)
+ * ===================================================================================
+ *
+ * FUNCIONALIDADE:
+ * Este arquivo CSS é responsável por toda a apresentação visual do nosso 'index.html'.
+ * Ele define cores, fontes, espaçamentos e o layout dos elementos do formulário.
+ *
+ * CONCEITO: Separação de Responsabilidades
+ * Manter o CSS em um arquivo separado do HTML é uma boa prática fundamental. O HTML
+ * cuida da ESTRUTURA e do SIGNIFICADO, enquanto o CSS cuida da APARÊNCIA.
+ * Isso torna o código mais limpo, reutilizável e fácil de manter.
+ */
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Estilos Gerais e Corpo da Página (Body)
+  -----------------------------------------------------------------------------------
+  FUNCIONALIDADE:
+  Define os estilos base que serão aplicados a toda a página.
+*/
+body {
+  /* Define a família de fontes padrão para todo o texto, conforme solicitado. */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Cor de fundo cinza claro para a página inteira. */
+  background-color: #f4f4f4;
+
+  /* Cor padrão para o texto. Usamos o cinza escuro definido no plano. */
+  color: #333333;
+
+  /* CONCEITO: Flexbox para Centralização
+       Usamos o modelo de layout Flexbox para centralizar facilmente o nosso formulário
+       na tela, tanto na vertical (align-items) quanto na horizontal (justify-content). */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Um pequeno preenchimento nas bordas da página. */
+  padding: 20px;
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Container Principal (.container)
+  -----------------------------------------------------------------------------------
+  FUNCIONALIDADE:
+  Estiliza o 'div' principal que envolve nosso formulário, criando o efeito de "cartão".
+  O ponto '.' antes de 'container' indica que estamos selecionando um elemento pela sua 'class'.
+*/
+.container {
+  background-color: #ffffff; /* Fundo branco para o formulário. */
+  padding: 30px; /* Espaçamento interno para o conteúdo não ficar colado nas bordas. */
+  border-radius: 8px; /* Bordas levemente arredondadas para um visual mais suave. */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidade. */
+  max-width: 600px; /* Largura máxima do formulário. */
+  width: 100%; /* Garante que o formulário ocupe 100% da largura em telas menores. */
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Cabeçalho do Formulário (header, h1)
+  -----------------------------------------------------------------------------------
+*/
+header {
+  text-align: center; /* Centraliza o texto do cabeçalho. */
+  margin-bottom: 20px; /* Espaço abaixo do cabeçalho. */
+  border-bottom: 1px solid #eee; /* Linha sutil para separar o cabeçalho do formulário. */
+  padding-bottom: 20px;
+}
+
+/* Seleciona a tag <h1> dentro do <header> para aplicar a cor principal. */
+h1 {
+  color: #4caf50; /* Verde Principal. */
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Grupos de Campos (fieldset, legend)
+  -----------------------------------------------------------------------------------
+*/
+fieldset {
+  border: 1px solid #ddd; /* Borda sutil para o grupo de campos. */
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+legend {
+  color: #4caf50; /* Título do grupo em Verde Principal. */
+  font-weight: bold; /* Texto em negrito. */
+  padding: 0 10px; /* Pequeno espaçamento lateral para não colar na borda. */
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Rótulos e Campos de Entrada (label, input, textarea)
+  -----------------------------------------------------------------------------------
+*/
+.input-group {
+  margin-bottom: 15px; /* Espaço entre cada par de rótulo/campo. */
+}
+
+label {
+  display: block; /* Faz com que o rótulo ocupe sua própria linha, ficando acima do campo. */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Agrupamos múltiplos seletores com vírgula para aplicar os mesmos estilos a todos. */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+  width: 100%; /* Faz o campo ocupar toda a largura disponível. */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  /* CONCEITO: Box Sizing
+       'box-sizing: border-box;' é uma regra crucial que faz com que o padding e a borda
+       NÃO aumentem a largura total do elemento. Garante layouts mais previsíveis. */
+  box-sizing: border-box;
+
+  font-family: "Segoe UI", sans-serif; /* Garante que a fonte dentro do campo seja a mesma. */
+
+  /* AQUI ESTÁ A NOSSA CORREÇÃO */
+  /* FUNCIONALIDADE: Desabilita a alça de redimensionamento no canto inferior direito.
+       CONCEITO: A propriedade 'resize' controla se um elemento pode ser redimensionado pelo usuário.
+       Valores possíveis são 'both', 'horizontal', 'vertical' e 'none'. */
+  resize: none;
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Botão Principal (button)
+  -----------------------------------------------------------------------------------
+*/
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4caf50; /* Verde Principal. */
+  color: #ffffff; /* Texto branco. */
+  border: none; /* Remove a borda padrão do botão. */
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer; /* Muda o cursor do mouse para uma "mãozinha", indicando que é clicável. */
+
+  /* Efeito suave de transição na cor de fundo quando o mouse passar por cima. */
+  transition: background-color 0.3s;
+}
+
+/* CONCEITO: Pseudo-classe :hover
+   Esta regra é aplicada apenas quando o usuário passa o mouse sobre o botão. */
+button:hover {
+  background-color: #45a049; /* Um tom de verde um pouco mais escuro. */
+}
+
+/* -----------------------------------------------------------------------------------
+  SUBTÍTULO: Mensagens de Feedback (.mensagem)
+  -----------------------------------------------------------------------------------
+*/
+.mensagem {
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  display: none; /* A mensagem começa escondida por padrão. */
+}
+
+/* Estilo para a mensagem de sucesso. Será ativado pelo JavaScript adicionando a classe 'sucesso'. */
+.mensagem.sucesso {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  display: block; /* Torna a mensagem visível. */
+}
+
+/* Estilo para a mensagem de erro. */
+.mensagem.erro {
+  background-color: #ffebee;
+  color: #c62828;
+  display: block;
+}

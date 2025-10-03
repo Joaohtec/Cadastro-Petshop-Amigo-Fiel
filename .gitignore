@@ -1,0 +1,15 @@
+# Pasta de dependências do Node.js
+# O motivo para ignorar: ela é muito pesada e pode ser recriada
+# por qualquer pessoa que baixe o projeto, apenas rodando "npm install".
+/backend/node_modules/
+
+# Arquivo de variáveis de ambiente (vamos usar isso para a senha!)
+# NUNCA deve ser enviado para o GitHub.
+.env
+
+# Arquivos de log que podem ser gerados
+*.log
+
+# Arquivos de sistema operacional que não são necessários no projeto
+.DS_Store
+Thumbs.db
